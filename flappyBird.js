@@ -59,7 +59,11 @@ function draw() {
             });
         }
         // detect collision
-             
+            if (bX + bird.width >= pipe[index].x && bX <= pipe[index].x + 
+                pipeNorth.width && bY <= pipe[index].y + pipeNorth.height
+                || bY+bird.height >= pipe[index].y+constant){
+                    location.reload();
+                }
     }
 	
 	ctx.drawImage(fg, 0, cvs.height - fg.height);

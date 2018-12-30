@@ -23,12 +23,18 @@ var bY = 150;
 var score = 0;
 var gravity = 1.2;
 
+var flySound= new Audio();
+var scoreSound = new Audio();
 // on key down
+
+flySound.src = "sounds/fly.mp3";
+scoreSound.src = "sounds/score.mp3"
 
 document.addEventListener('keydown', moveUp);
 
 function moveUp() {
-	bY -= 25;
+    bY -= 25;
+    flySound.play();
 }
 
 // pipe coords
@@ -67,6 +73,7 @@ function draw() {
         }
         if(pipe[i].x == 5) {
             score++;
+            scoreSound.play();
         }
 	}
 
